@@ -382,7 +382,9 @@
     </div>
     <!-- Mid End -->
     <script>
+      // Image Gallery Looping Start
       let next = document.querySelector("div.next-arrow");
+      let previous = document.querySelector("div.prev-arrow");
       let image1 = document.querySelector("#image1");
       let image2 = document.querySelector("#image2");
       let image3 = document.querySelector("#image3");
@@ -408,6 +410,27 @@
           imageCount = 1;
         }
       });
+
+      previous.addEventListener("click", () => {
+        if (imageCount == 1) {
+          image1.classList.toggle("hidden");
+          image4.classList.toggle("hidden");
+          imageCount = 4;
+        } else if (imageCount == 2) {
+          image2.classList.toggle("hidden");
+          image1.classList.toggle("hidden");
+          imageCount--;
+        } else if (imageCount == 3) {
+          image3.classList.toggle("hidden");
+          image2.classList.toggle("hidden");
+          imageCount--;
+        } else {
+          image4.classList.toggle("hidden");
+          image3.classList.toggle("hidden");
+          imageCount--;
+        }
+      });
+      // Image Gallery Looping End
     </script>
   </body>
 </html>
