@@ -384,17 +384,17 @@
     <script>
       // Side Menu Start
       let sideMenu = document.querySelector(".navbar svg");
-      let exit = document.querySelector('.menu-items svg');
+      let exit = document.querySelector(".menu-items svg");
 
       sideMenu.addEventListener("click", () => {
         document.querySelector("div.side-menu").classList.toggle("hidden");
         document.querySelector("div.overlay").classList.toggle("hidden");
       });
 
-      exit.addEventListener('click', () => {
+      exit.addEventListener("click", () => {
         document.querySelector("div.side-menu").classList.toggle("hidden");
         document.querySelector("div.overlay").classList.toggle("hidden");
-      })
+      });
 
       // Side Menu End
 
@@ -447,6 +447,26 @@
         }
       });
       // Image Gallery Looping End
+
+      // Quantity Counter Start
+      let plus = document.querySelector("#plus");
+      let minus = document.querySelector("#minus");
+      let count = document.querySelector("#count");
+      let baseline = 0;
+
+      plus.addEventListener("click", () => {
+        baseline++
+        count.textContent = baseline;
+      });
+
+      minus.addEventListener("click", () => {
+        if (baseline > 0) {
+        baseline--
+        count.textContent = baseline;
+        } 
+      });
+
+      // Quantity Counter End
     </script>
   </body>
 </html>
