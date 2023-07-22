@@ -74,7 +74,7 @@
       }
 
       .hidden {
-        display:none;
+        display: none;
       }
 
       .navbar {
@@ -96,6 +96,42 @@
 
       .prod-desc p {
         color: hsl(219, 9%, 45%);
+      }
+
+      .next-arrow {
+        position: absolute;
+        background-color: hsl(223, 64%, 98%);
+        border-radius: 20px;
+        width: 40px;
+        height: 40px;
+        top: 25%;
+        right: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .next-arrow svg {
+        position: absolute;
+        left: 35%;
+      }
+
+      .prev-arrow {
+        position: absolute;
+        background-color: hsl(223, 64%, 98%);
+        border-radius: 20px;
+        width: 40px;
+        height: 40px;
+        top: 25%;
+        left: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .prev-arrow svg {
+        position: absolute;
+        right: 40%;
       }
 
       .images img {
@@ -234,6 +270,28 @@
     <!-- Image Gallery Start -->
     <div class="images">
       <img src="/images/image-product-1.jpg" />
+      <div class="next-arrow">
+        <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="m2 1 8 8-8 8"
+            stroke="#1D2026"
+            stroke-width="3"
+            fill="none"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div class="prev-arrow">
+        <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M11 1 3 9l8 8"
+            stroke="#1D2026"
+            stroke-width="3"
+            fill="none"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </div>
     </div>
     <!-- Image Gallery End -->
 
