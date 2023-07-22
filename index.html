@@ -45,7 +45,7 @@
 
       .side-menu {
         background-color: white;
-        position: absolute;
+        position: fixed;
         width: 60vw;
         height: 100vh;
         z-index: 999;
@@ -67,7 +67,7 @@
 
       .overlay {
         background-color: rgb(0, 0, 0, 0.6);
-        position: absolute;
+        position: fixed;
         width: 100vw;
         height: 100vh;
         z-index: 998;
@@ -382,6 +382,22 @@
     </div>
     <!-- Mid End -->
     <script>
+      // Side Menu Start
+      let sideMenu = document.querySelector(".navbar svg");
+      let exit = document.querySelector('.menu-items svg');
+
+      sideMenu.addEventListener("click", () => {
+        document.querySelector("div.side-menu").classList.toggle("hidden");
+        document.querySelector("div.overlay").classList.toggle("hidden");
+      });
+
+      exit.addEventListener('click', () => {
+        document.querySelector("div.side-menu").classList.toggle("hidden");
+        document.querySelector("div.overlay").classList.toggle("hidden");
+      })
+
+      // Side Menu End
+
       // Image Gallery Looping Start
       let next = document.querySelector("div.next-arrow");
       let previous = document.querySelector("div.prev-arrow");
