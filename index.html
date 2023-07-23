@@ -587,33 +587,60 @@
 
       // Quantity Counter End
 
-      // Cart Count Start
+      // Cart Count & Modal Start
       let navBarCart = document.querySelector("div.cart-count");
       let addToCart = document.querySelector("button.atc");
       let cartCount = 0;
+      let priceSummary = document.querySelector(".modal-mid div");
+      let cartModal = document.querySelector("div.cart-modal");
+      let cartIcon = document.querySelector("#cart-icon");
 
-      addToCart.addEventListener("click", () => {
+      function updateCart() {
         if (baseline > 0) {
           navBarCart.textContent = cartCount += baseline;
           baseline = 0;
           count.textContent = baseline;
         }
-      });
+      }
+      
+      function changePriceSummaryText() {
+        priceSummary.textContent =
+          "Fall Limited Edition Sneakers $125.00 x " +
+          navBarCart.textContent +
+          " " +
+          "$" +
+          navBarCart.textContent * 125.0 +
+          ".00";
+      }
 
-      // Cart Count End
+      function updatePriceSummary() {
+        if (cartModal.classList.contains("hidden") == false) {
+          changePriceSummaryText();
+        }
+      }
 
-      // Cart Modal Start
-      let cartModal = document.querySelector("div.cart-modal");
-      let cartIcon = document.querySelector("#cart-icon");
-      cartIcon.addEventListener("click", () => {
+      function toggleModal() {
         cartModal.classList.toggle("hidden");
+      }
+
+      cartIcon.addEventListener("click", () => {
+        toggleModal();
+        updatePriceSummary();
       });
 
       navBarCart.addEventListener("click", () => {
-        cartModal.classList.toggle("hidden");
+        toggleModal();
+        updatePriceSummary();
       });
 
-      // Cart Modal End
+      
+
+      addToCart.addEventListener("click", () => {
+        updateCart();
+        changePriceSummaryText();
+      });
+
+      // Cart Count & Modal End
     </script>
   </body>
 </html>
