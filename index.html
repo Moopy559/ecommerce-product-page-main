@@ -225,6 +225,7 @@
         justify-content: space-between;
         align-items: center;
         width: 50%;
+        height: 40px;
       }
       .current-price h1 {
       }
@@ -346,7 +347,7 @@
           />
         </svg>
 
-        <img style="height: 20px" src="./images/image-avatar.png" />
+        <img style="height: 20px" src="images/image-avatar.png" />
       </div>
     </div>
     <!-- Nav Bar End -->
@@ -360,12 +361,13 @@
         ></div>
         <div>
           <div class="modal-mid">
-            <img src="./images/image-product-1-thumbnail.jpg" />
+            <img src="images/image-product-1-thumbnail.jpg" />
             <div>
               Fall Limited Edition Sneakers<br />
               $125 x
             </div>
             <svg
+              id="emptyCart"
               width="14"
               height="16"
               xmlns="http://www.w3.org/2000/svg"
@@ -388,10 +390,10 @@
 
     <!-- Image Gallery Start -->
     <div class="images">
-      <img id="image1" src="/images/image-product-1.jpg" />
-      <img id="image2" class="hidden" src="/images/image-product-2.jpg" />
-      <img id="image3" class="hidden" src="/images/image-product-3.jpg" />
-      <img id="image4" class="hidden" src="/images/image-product-4.jpg" />
+      <img id="image1" src="images/image-product-1.jpg" />
+      <img id="image2" class="hidden" src="images/image-product-2.jpg" />
+      <img id="image3" class="hidden" src="images/image-product-3.jpg" />
+      <img id="image4" class="hidden" src="images/image-product-4.jpg" />
 
       <div class="next-arrow">
         <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
@@ -594,6 +596,7 @@
       let priceSummary = document.querySelector(".modal-mid div");
       let cartModal = document.querySelector("div.cart-modal");
       let cartIcon = document.querySelector("#cart-icon");
+      let emptyCart = document.querySelector("#emptyCart");
 
       function updateCart() {
         if (baseline > 0) {
@@ -602,7 +605,14 @@
           count.textContent = baseline;
         }
       }
-      
+
+      function adviseEmptyCart() {
+        // document.querySelector(".modal-mid div").classList.toggle("hidden");
+        document.querySelector(".modal-mid img").classList.toggle("hidden");
+        document.querySelector(".modal-mid svg").classList.toggle("hidden");
+        document.querySelector(".modal-flex button").classList.toggle("hidden");
+      }
+
       function changePriceSummaryText() {
         priceSummary.textContent =
           "Fall Limited Edition Sneakers $125.00 x " +
@@ -633,11 +643,17 @@
         updatePriceSummary();
       });
 
-      
-
       addToCart.addEventListener("click", () => {
         updateCart();
         changePriceSummaryText();
+      });
+
+      emptyCart.addEventListener("click", () => {
+        navBarCart.textContent = "";
+        cartCount = 0;
+        baseline = 0;
+        count.textContent = baseline;
+        adviseEmptyCart();
       });
 
       // Cart Count & Modal End
